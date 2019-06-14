@@ -1,0 +1,22 @@
+<h1>Hello {{name}}! You currently have {{toDoNum}} things in your To Do List!</hi>
+
+<form method="post">
+  <label for="newListItem">Enter your new task here:</label>
+  <input type="text" name="newListItem">
+  <input type="submit" name="Add Item" value="Add Item">
+</form>
+
+{{#if toDo}}
+
+<ul>
+  {{#each toDo}}
+  <li>
+    <h3>{{this.name}}</h3>
+    <form method="post">
+      <input type="hidden" name="id" value={{this.id}}>
+      <input type="submit" name="Item Complete" value="Mark Task As Done">
+    </form>
+  </li>
+  {{/each}}
+</ul>
+{{/if}}
